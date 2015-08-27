@@ -1,0 +1,918 @@
+{
+  "title": "World Movie API",
+  "baseUri": "http://example.api.com/{version}",
+  "version": "v1",
+  "traits": [
+    {
+      "paged": {
+        "queryParameters": {
+          "pages": {
+            "description": "The number of pages to return",
+            "type": "number",
+            "displayName": "pages"
+          }
+        }
+      }
+    }
+  ],
+  "schemas": [
+    {
+      "actor": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"id\": \"http://jsonschema.net\",\n  \"type\": \"object\",\n  \"additionalProperties\": true,\n  \"title\": \"Root schema.\",\n  \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n  \"name\": \"/\",\n  \"properties\": {\n    \"id\": {\n      \"id\": \"http://jsonschema.net/id\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Id schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"id\",\n      \"autoIncrement\": true,\n      \"primary\": true,\n      \"default\": 5\n    },\n    \"name\": {\n      \"id\": \"http://jsonschema.net/name\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Name schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"name\",\n      \"default\": \"Tom H'ardy\"\n    },\n    \"slug\": {\n      \"id\": \"http://jsonschema.net/slug\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Slug schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"slug\",\n      \"unique\": true,\n      \"default\": \"tom-hardy\"\n    },\n    \"country\": {\n      \"id\": \"http://jsonschema.net/country\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Country schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"country\",\n      \"default\": \"Reino Unido\"\n    },\n    \"birthday\": {\n      \"id\": \"http://jsonschema.net/birthday\",\n      \"type\": \"date\",\n      \"minLength\": 1,\n      \"title\": \"Birthday schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"birthday\",\n      \"default\": \"1977-09-15T00:00:00-0500\"\n    },\n    \"biography\": {\n      \"id\": \"http://jsonschema.net/biography\",\n      \"type\": \"text\",\n      \"minLength\": 1,\n      \"title\": \"Biography schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"biography\",\n      \"default\": \"Edward Thomas Hardy, más conocido como Tom Hardy es un talentoso actor británico nacido el 15 de septiembre de 1977 en Hammersmith.\\r\\r\\tUno de los grandes talentos de la industria, fue conocido a nivel mundial por la película Bronson estrenada en el año 2009 donde interpretaba al protagonista de la película que daba el nombre a la cinta.\\r\\r\\tSus papeles secundarios más destacados fueron en las movies Star Trek X: némesis y la película Inception.\\r\\r\\tDio el salto a la fama gracias a su participación en la película Warrior donde interpretaba el papel de Tommy Riordan. Pero sin duda alguna su mayor actuación fue en la película The Dark Knight Rises de la saga de Batman donde interpretaba el papel del villano Bane.\\r\\r\\tBiografía\\r\\r\\tEmma es hija de Jeff y Krista Stone ama de casa. También tiene un hermano menor, Spencer, quien juega futbol americano. Desde muy pequeña mostro su pasión por la actuación, de hecho fue miembro del Teatro de la Juventud del Valle; un teatro regional ubicado en Phoenix, Arizona.\\r\\r\\tEn este teatro realizo su primera presentación a los once años de edad con la obra de teatro El viento en los sauces. Estudio en el Cocopah Middle School donde también tuvo apariciones en las obras teatrales entre las cuales se destacan Winnie the Pooh,Cenicienta, The Wiz, Titanic, y Las aventuras de Alicia en el país de las maravillas.\\r\\r\\tA la edad de quince años se mudo con su madre a la ciudad de los Angeles con el objetivo de comenzar su carrera como actriz.\\r\\r\\tPrimeros pasos\\r\\r\\tCreció en el East Sheen de Londres. Su madre se llama Ann y era una artista y pintora. Su padre, Edward Chips Hardy, era escritor de comedias. Sus primeros pasos en la actuación se dieron luego de haberse graduado en el Drama Centre London.\\r\\r\\tLos primeros papeles interpretados por el actor eran de dramas bélicos, siendo su primera aparición en la miniserie para televisión Band of Brothers, donde interpretaba el papel del soldado John A. Janovec.\\r\\r\\tSu primera aparición en la pantalla grande se da en el año 2001 de la mano del director, Ridley Scott con la película Black Hawk Down. Luego en el 2006 aparece como actor secundario en las películas María Antonieta de Sophia Coppola y en el año 2008 aparece en RocknRolla de Guy Ritchie.\\r\\r\\tTras el rol protagonista en Bronson, la fama para el actor llega con su participación en la película de fama mundial, Inception, la cual tiene como protagonista al actor Leonardo di Caprio.\"\n    },\n    \"image\": {\n      \"id\": \"http://jsonschema.net/image\",\n      \"type\": \"file\",\n      \"minLength\": 1,\n      \"title\": \"Image schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"image\",\n      \"default\": \"assets/images/8/2/7/e/7/827e76081e9c7ecca4450fcb8276a1a5b5c25051.jpg\"\n    }\n  },\n  \"required\": [\n    \"id\",\n    \"name\",\n    \"slug\",\n    \"image\"\n  ]\n}"
+    },
+    {
+      "genre": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"id\": \"http://jsonschema.net\",\n  \"type\": \"object\",\n  \"additionalProperties\": true,\n  \"title\": \"Root schema.\",\n  \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n  \"name\": \"/\",\n  \"properties\": {\n    \"id\": {\n      \"id\": \"http://jsonschema.net/id\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Id schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"id\",\n      \"autoIncrement\":true,\n      \"primary\":true,\n      \"default\": 18\n    },\n    \"name\": {\n      \"id\": \"http://jsonschema.net/name\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Name schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"name\",\n      \"default\": \"Accion\"\n    },\n    \"slug\": {\n      \"id\": \"http://jsonschema.net/slug\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Slug schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"slug\",\n      \"unique\": true,\n      \"default\": \"accion\"\n    },\n    \"total\": {\n      \"id\": \"http://jsonschema.net/total\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Total schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"total\",\n      \"default\": 0\n    }\n  },\n  \"required\": [\n    \"id\",\n    \"name\",\n    \"slug\"\n  ]\n}"
+    },
+    {
+      "movie": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"id\": \"http://jsonschema.net\",\n  \"type\": \"object\",\n  \"additionalProperties\": true,\n  \"title\": \"Root schema.\",\n  \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n  \"name\": \"/\",\n  \"properties\": {\n    \"id\": {\n      \"id\": \"http://jsonschema.net/id\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Id schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"id\",\n      \"autoIncrement\": true,\n      \"primary\": true,\n      \"default\": 55\n    },\n    \"name\": {\n      \"id\": \"http://jsonschema.net/name\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Name schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"name\",\n      \"default\": \"The Hunger Games: Mockingjay - Part 1\"\n    },\n    \"slug\": {\n      \"id\": \"http://jsonschema.net/slug\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Slug schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"slug\",\n      \"unique\": true,\n      \"default\": \"the-hunger-games-mockingjay-part-1\"\n    },\n    \"autor\": {\n      \"id\": \"http://jsonschema.net/autor\",\n      \"type\": \"object\",\n      \"ref\": \"autor\",\n      \"title\": \"Autor schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"autor\",\n      \"default\": \"autor example\"\n    },\n    \"date_released\": {\n      \"id\": \"http://jsonschema.net/date_released\",\n      \"type\": \"date\",\n      \"minLength\": 1,\n      \"title\": \"Date_released schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"date_released\",\n      \"default\": \"2014-11-21T00:00:00-0500\"\n    },\n    \"year\": {\n      \"id\": \"http://jsonschema.net/year\",\n      \"type\": \"integer\",\n      \"minLength\": 1,\n      \"title\": \"Year schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"year\",\n      \"default\": \"2014\"\n    },\n    \"trailer\": {\n      \"id\": \"http://jsonschema.net/trailer\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Trailer schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"trailer\",\n      \"default\": \"http://www.youtube.com/embed/3PkkHsuMrho\"\n    },\n    \"sinopsis\": {\n      \"id\": \"http://jsonschema.net/sinopsis\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Sinopsis schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"sinopsis\",\n      \"default\": \"Katniss se refugia en el Distrito 13 y es utilizada por los rebeldes como una herramienta de propaganda para unir a los distritos en el levantamiento contra el Capitolio y contra el presidente Snow. Peeta y los otros que fueron capturados por el Capitolio son rescatados. Tras la liberación de Peeta, se forma un grupo liderado por Katniss que tiene como principal misión infiltrarse en el Capitolio y asesinar al Presidente Snow.\"\n    },\n    \"musicians\": {\n      \"id\": \"http://jsonschema.net/musicians\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Musicians schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"musicians\",\n      \"items\": {\n        \"id\": \"http://jsonschema.net/musicians/0\",\n        \"type\": \"string\",\n        \"minLength\": 1,\n        \"title\": \"0 schema.\",\n        \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n        \"name\": \"0\",\n        \"default\": \"James Newton Howard\"\n      }\n    },\n    \"screenwriters\": {\n      \"id\": \"http://jsonschema.net/screenwriters\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Screenwriters schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"screenwriters\",\n      \"items\": {\n        \"id\": \"http://jsonschema.net/screenwriters/0\",\n        \"type\": \"string\",\n        \"minLength\": 1,\n        \"title\": \"0 schema.\",\n        \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n        \"name\": \"0\",\n        \"default\": \"Danny Strong\"\n      }\n    },\n    \"directors\": {\n      \"id\": \"http://jsonschema.net/directors\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Directors schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"directors\",\n      \"items\": {\n        \"id\": \"http://jsonschema.net/directors/0\",\n        \"type\": \"string\",\n        \"minLength\": 1,\n        \"title\": \"0 schema.\",\n        \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n        \"name\": \"0\",\n        \"default\": \"Francis Lawrence\"\n      }\n    },\n    \"producers\": {\n      \"id\": \"http://jsonschema.net/producers\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Producers schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"producers\",\n      \"items\": {\n        \"id\": \"http://jsonschema.net/producers/0\",\n        \"type\": \"string\",\n        \"minLength\": 1,\n        \"title\": \"0 schema.\",\n        \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n        \"name\": \"0\",\n        \"default\": \"Color Force / Lionsgate\"\n      }\n    },\n    \"actors\": {\n      \"id\": \"http://jsonschema.net/actors\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Actors schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"actors\",\n      \"items\": {\n        \"id\": \"http://jsonschema.net/actors/0\",\n        \"type\": \"object\",\n        \"title\": \"0 schema.\",\n        \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n        \"name\": \"actor\",\n        \"ref\": \"actor\"\n      }\n    },\n    \"genres\": {\n      \"id\": \"http://jsonschema.net/genres\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Genres schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"genres\",\n      \"items\": [\n        {\n          \"id\": \"http://jsonschema.net/genres/0\",\n          \"type\": \"object\",\n          \"additionalProperties\": true,\n          \"title\": \"0 schema.\",\n          \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n          \"name\": \"genre\",\n          \"ref\": \"genre\",\n          \"properties\": {\n            \"id\": {\n              \"id\": \"http://jsonschema.net/genres/0/id\",\n              \"type\": \"integer\",\n              \"multipleOf\": 1,\n              \"maximum\": 100,\n              \"minimum\": 1,\n              \"exclusiveMaximum\": false,\n              \"exclusiveMinimum\": false,\n              \"title\": \"Id schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"id\",\n              \"default\": 10\n            },\n            \"name\": {\n              \"id\": \"http://jsonschema.net/genres/0/name\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Name schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"name\",\n              \"default\": \"Ciencia Ficcion\"\n            },\n            \"slug\": {\n              \"id\": \"http://jsonschema.net/genres/0/slug\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Slug schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"slug\",\n              \"default\": \"ciencia-ficcion\"\n            },\n            \"total\": {\n              \"id\": \"http://jsonschema.net/genres/0/total\",\n              \"type\": \"integer\",\n              \"multipleOf\": 1,\n              \"maximum\": 100,\n              \"minimum\": 1,\n              \"exclusiveMaximum\": false,\n              \"exclusiveMinimum\": false,\n              \"title\": \"Total schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"total\",\n              \"default\": 250\n            }\n          }\n        }\n      ]\n    },\n    \"links_watch\": {\n      \"id\": \"http://jsonschema.net/links_watch\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Links_watch schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"links_watch\",\n      \"items\": [\n        {\n          \"id\": \"http://jsonschema.net/links_watch/0\",\n          \"type\": \"object\",\n          \"additionalProperties\": true,\n          \"title\": \"0 schema.\",\n          \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n          \"name\": \"link_watch\",\n          \"properties\": {\n            \"id\": {\n              \"id\": \"http://jsonschema.net/links_watch/0/id\",\n              \"type\": \"integer\",\n              \"multipleOf\": 1,\n              \"maximum\": 100,\n              \"minimum\": 1,\n              \"exclusiveMaximum\": false,\n              \"exclusiveMinimum\": false,\n              \"title\": \"Id schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"id\",\n              \"primary\": true,\n              \"autoIncrement\": true,\n              \"default\": 360\n            },\n            \"link\": {\n              \"id\": \"http://jsonschema.net/links_watch/0/link\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Link schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"link\",\n              \"unique\": true,\n              \"default\": \"http://vk.com/video_ext.php?oid=277127900&id=171042201&hash=db35a0fa8aa84b50&hd=1\"\n            },\n            \"provider\": {\n              \"id\": \"http://jsonschema.net/links_watch/0/provider\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Provider schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"provider\",\n              \"enum\": [\n                \"youtube\",\n                \"VK\"\n              ],\n              \"default\": \"VK\"\n            },\n            \"language\": {\n              \"id\": \"http://jsonschema.net/links_watch/0/language\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Language schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"language\",\n              \"enum\": [\n                \"Latino\",\n                \"Ingles\"\n              ],\n              \"default\": \"Latino\"\n            },\n            \"format\": {\n              \"id\": \"http://jsonschema.net/links_watch/0/format\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Format schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"format\",\n              \"enum\": [\n                \"CAM\",\n                \"HD\"\n              ],\n              \"default\": \"CAM\"\n            }\n          }\n        }\n      ]\n    },\n    \"links_download\": {\n      \"id\": \"http://jsonschema.net/links_download\",\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"uniqueItems\": false,\n      \"additionalItems\": true,\n      \"title\": \"Links_download schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"links_download\",\n      \"items\": [\n        {\n          \"id\": \"http://jsonschema.net/links_download/0\",\n          \"type\": \"object\",\n          \"additionalProperties\": true,\n          \"title\": \"0 schema.\",\n          \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n          \"name\": \"link_download\",\n          \"properties\": {\n            \"id\": {\n              \"id\": \"http://jsonschema.net/links_download/0/id\",\n              \"type\": \"integer\",\n              \"multipleOf\": 1,\n              \"maximum\": 100,\n              \"minimum\": 1,\n              \"exclusiveMaximum\": false,\n              \"exclusiveMinimum\": false,\n              \"title\": \"Id schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"id\",\n              \"primary\": true,\n              \"autoIncrement\": true,\n              \"default\": 242\n            },\n            \"link\": {\n              \"id\": \"http://jsonschema.net/links_download/0/link\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Link schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"link\",\n              \"unique\": true,\n              \"default\": \"http://streamcloud.eu/mxnulc7rp5cr/MockingjayP1.Cam.Latino.Gnula.avi.html\"\n            },\n            \"provider\": {\n              \"id\": \"http://jsonschema.net/links_download/0/provider\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Provider schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"provider\",\n              \"enum\": [\n                \"youtube\",\n                \"otro\"\n              ],\n              \"default\": \"youtube\"\n            },\n            \"language\": {\n              \"id\": \"http://jsonschema.net/links_download/0/language\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Language schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"language\",\n              \"enum\": [\n                \"Latino\",\n                \"Ingles\"\n              ],\n              \"default\": \"Latino\"\n            },\n            \"format\": {\n              \"id\": \"http://jsonschema.net/links_download/0/format\",\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"title\": \"Format schema.\",\n              \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n              \"name\": \"format\",\n              \"enum\": [\n                \"CAM\",\n                \"HD\"\n              ],\n              \"default\": \"CAM\"\n            }\n          }\n        }\n      ]\n    },\n    \"views\": {\n      \"id\": \"http://jsonschema.net/views\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Views schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"views\",\n      \"default\": 0\n    },\n    \"rating\": {\n      \"id\": \"http://jsonschema.net/rating\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Rating schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"rating\",\n      \"default\": 0\n    },\n    \"next_release\": {\n      \"id\": \"http://jsonschema.net/next_release\",\n      \"type\": \"boolean\",\n      \"title\": \"Next_release schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"next_release\",\n      \"default\": false\n    },\n    \"image\": {\n      \"id\": \"http://jsonschema.net/image\",\n      \"type\": \"file\",\n      \"minLength\": 1,\n      \"title\": \"Image schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"image\",\n      \"default\": \"assets/images/b/2/7/f/2/b27f231bae5db6d2c3b03d5d3374384158ae20b1.jpg\"\n    }\n  },\n  \"required\": [\n    \"id\",\n    \"name\",\n    \"slug\",\n    \"trailer\",\n    \"sinopsis\",\n    \"actors\",\n    \"genres\",\n    \"links_download\"\n  ]\n}"
+    },
+    {
+      "news": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"id\": \"http://jsonschema.net\",\n  \"type\": \"object\",\n  \"additionalProperties\": true,\n  \"title\": \"Root schema.\",\n  \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n  \"name\": \"/\",\n  \"properties\": {\n    \"id\": {\n      \"id\": \"http://jsonschema.net/id\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Id schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"id\",\n      \"autoIncrement\":true,\n      \"primary\":true,\n      \"default\": 39\n    },\n    \"autor\": {\n      \"id\": \"http://jsonschema.net/autor\",\n      \"type\": \"object\",\n      \"ref\": \"autor\",\n      \"title\": \"Autor schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"autor\",\n      \"default\": \"autor example\"\n    },\n    \"title\": {\n      \"id\": \"http://jsonschema.net/title\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Title schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"title\",\n      \"default\": \"Se confirma un remake estadounidense para la cinta japonesa Audition\"\n    },\n    \"content\": {\n      \"id\": \"http://jsonschema.net/content\",\n      \"type\": \"text\",\n      \"minLength\": 1,\n      \"title\": \"Content schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"content\",\n      \"default\": \"<br>\\nLos a\\\"fi'asd 'cionados al cine de terror japonés conocerán la película <b>Audition</b> pues ha sido un auténtico referente en la historia del mismo. Corría el año 1999 cuando un descerebrado <b>Takashi Miike se abría paso hacia occidente</b> con la idea de dar a conocer sus películas a gran escala. La retorcida forma de contar las cosas de este director lo ha convertido en un hombre bastante célebre para el cine independiente de terror y con el tiempo, se ha hecho con amplio abanico de seguidores que esperan impacientes sus nuevos títulos.<br><br>\\r\\nSon muchos los remakes que hace Estados Unidos de películas japonesas y ahora, parece ser que le toca el turno a <b>Audition</b>. Mario Kassar, productor de cintas como <b>Terminator 2</b> o <b>Desafío Total</b> es quien está tras la producción de este proyecto.<br><b>Audition</b> cuenta la historia de un hombre que finge ser director de casting con la idea de entrevistar jóvenes para encontrar pareja. A ese casting llega una hermosa chica asiática que resulta ser tan sexy como sádica.<br><br>\\r\\nEl argumento está <b>basado en un libro Ryu Murakami</b> y esta novela es también la que servirá de base para escribir el guión del remake estadounidense que por lo que sabemos, correrá a cargo de Richard Gray que además, también la dirigirá.<br>\\r\\nPor el momento, no se conoce la fecha de rodaje ni tampoco el reparto que tendrá la película aunque ya se ha comentado acerca de la opción no acertada de hacer remake de películas japonesas y es que, viendo los resultados que ha tenido el remake de <b>Oldboy</b> del coreano <b>Park Chan-Wook</b>, es normal que haya personas que no se fíen demasiado de lo que puede salir de aquí.<br><br>\\r\\nEn cualquier caso, la producción ya está en marcha y por lo que sabemos, no hay intención de pararla así que, tendremos que ver qué es lo que se termina cociendo y si finalmente hacen un <b>buen trabajo con un clásico del cine de terror japonés</b> de la nueva era que marcó la diferencia para el mundo occidental.\"\n    },\n    \"slug\": {\n      \"id\": \"http://jsonschema.net/slug\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Slug schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"slug\",\n      \"unique\": true,\n      \"default\": \"se-confirma-un-remake-estadounidense-para-la-cinta-japonesa-audition\"\n    },\n    \"views\": {\n      \"id\": \"http://jsonschema.net/views\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Views schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"views\",\n      \"default\": 1\n    },\n    \"date\": {\n      \"id\": \"http://jsonschema.net/date\",\n      \"type\": \"datetime\",\n      \"minLength\": 1,\n      \"title\": \"Date schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"date\",\n      \"default\": \"2015-02-02T15:55:47-0500\"\n    },\n    \"image\": {\n      \"id\": \"http://jsonschema.net/image\",\n      \"type\": \"file\",\n      \"minLength\": 1,\n      \"title\": \"Image schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"image\",\n      \"default\": \"assets/images/d/2/e/4/4/d2e444ba0a2eb479e251253e9f860d9eff18540f.jpg\"\n    }\n  },\n  \"required\": [\n    \"id\",\n    \"title\",\n    \"content\",\n    \"slug\",\n    \"image\"\n  ]\n}"
+    },
+    {
+      "autor": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"id\": \"http://jsonschema.net\",\n  \"type\": \"object\",\n  \"additionalProperties\": true,\n  \"title\": \"Root schema.\",\n  \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n  \"name\": \"/\",\n  \"properties\": {\n    \"id\": {\n      \"id\": \"http://jsonschema.net/id\",\n      \"type\": \"integer\",\n      \"multipleOf\": 1,\n      \"maximum\": 100,\n      \"minimum\": 1,\n      \"exclusiveMaximum\": false,\n      \"exclusiveMinimum\": false,\n      \"title\": \"Id schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"id\",\n      \"autoIncrement\":true,\n      \"primary\":true,\n      \"default\": 3\n    },\n    \"name\": {\n      \"id\": \"http://jsonschema.net/name\",\n      \"type\": \"string\",\n      \"minLength\": 1,\n      \"title\": \"Name schema.\",\n      \"description\": \"An explanation about the puropose of this instance described by this schema.\",\n      \"name\": \"name\",\n      \"default\": \"Gerson Alexander Pardo Gamez\"\n    }\n  },\n  \"required\": [\n    \"id\",\n    \"name\"\n  ]\n}"
+    }
+  ],
+  "protocols": [
+    "HTTP"
+  ],
+  "resources": [
+    {
+      "relativeUri": "/movie",
+      "methods": [
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Movie[]"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "get",
+          "action": "show"
+        },
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Movie"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "post",
+          "action": "create"
+        }
+      ],
+      "resources": [
+        {
+          "relativeUri": "/top",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Movie[]"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "top"
+          ],
+          "parentRelativeUri": "/movie",
+          "groupRelativeUri": "movie",
+          "name": "Movie",
+          "suffixRelativeUri": "",
+          "suffix": "Top"
+        },
+        {
+          "relativeUri": "/{id}",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Movie"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Movie"
+                    }
+                  }
+                }
+              },
+              "method": "put",
+              "action": "update"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Movie"
+                    }
+                  }
+                }
+              },
+              "method": "delete",
+              "action": "delete"
+            }
+          ],
+          "resources": [
+            {
+              "relativeUri": "/genres",
+              "methods": [
+                {
+                  "responses": {
+                    "200": {
+                      "body": {
+                        "application/json": {
+                          "schema": "Genre[]"
+                        }
+                      }
+                    }
+                  },
+                  "method": "get",
+                  "action": "show"
+                }
+              ],
+              "relativeUriPathSegments": [
+                "genres"
+              ],
+              "parentRelativeUri": "/movie/{id}",
+              "groupRelativeUri": "movie",
+              "name": "Movie",
+              "suffixRelativeUri": "id",
+              "suffix": "IdGenres"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "{id}"
+          ],
+          "uriParameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "displayName": "id"
+            }
+          },
+          "parentRelativeUri": "/movie",
+          "groupRelativeUri": "movie",
+          "name": "Movie",
+          "suffixRelativeUri": "",
+          "suffix": "Id"
+        }
+      ],
+      "relativeUriPathSegments": [
+        "movie"
+      ],
+      "parentRelativeUri": "",
+      "groupRelativeUri": "movie",
+      "suffixRelativeUri": "",
+      "name": "Movie",
+      "suffix": "Movie"
+    },
+    {
+      "relativeUri": "/news",
+      "methods": [
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "News[]"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "get",
+          "action": "show"
+        },
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "News"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "post",
+          "action": "create"
+        }
+      ],
+      "resources": [
+        {
+          "relativeUri": "/latest",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "News[]"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "latest"
+          ],
+          "parentRelativeUri": "/news",
+          "groupRelativeUri": "news",
+          "name": "News",
+          "suffixRelativeUri": "",
+          "suffix": "Latest"
+        },
+        {
+          "relativeUri": "/{id}",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "News"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "News"
+                    }
+                  }
+                }
+              },
+              "method": "put",
+              "action": "update"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "News"
+                    }
+                  }
+                }
+              },
+              "method": "delete",
+              "action": "delete"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "{id}"
+          ],
+          "uriParameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "displayName": "id"
+            }
+          },
+          "parentRelativeUri": "/news",
+          "groupRelativeUri": "news",
+          "name": "News",
+          "suffixRelativeUri": "",
+          "suffix": "Id"
+        }
+      ],
+      "relativeUriPathSegments": [
+        "news"
+      ],
+      "parentRelativeUri": "",
+      "groupRelativeUri": "news",
+      "suffixRelativeUri": "",
+      "name": "News",
+      "suffix": "News"
+    },
+    {
+      "relativeUri": "/autor",
+      "methods": [
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Autor[]"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "get",
+          "action": "show"
+        },
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Autor"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "post",
+          "action": "create"
+        }
+      ],
+      "resources": [
+        {
+          "relativeUri": "/featured",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Autor[]"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "featured"
+          ],
+          "parentRelativeUri": "/autor",
+          "groupRelativeUri": "autor",
+          "name": "Autor",
+          "suffixRelativeUri": "",
+          "suffix": "Featured"
+        },
+        {
+          "relativeUri": "/{id}",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Autor"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Autor"
+                    }
+                  }
+                }
+              },
+              "method": "put",
+              "action": "update"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Autor"
+                    }
+                  }
+                }
+              },
+              "method": "delete",
+              "action": "delete"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "{id}"
+          ],
+          "uriParameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "displayName": "id"
+            }
+          },
+          "parentRelativeUri": "/autor",
+          "groupRelativeUri": "autor",
+          "name": "Autor",
+          "suffixRelativeUri": "",
+          "suffix": "Id"
+        }
+      ],
+      "relativeUriPathSegments": [
+        "autor"
+      ],
+      "parentRelativeUri": "",
+      "groupRelativeUri": "autor",
+      "suffixRelativeUri": "",
+      "name": "Autor",
+      "suffix": "Autor"
+    },
+    {
+      "relativeUri": "/actor",
+      "methods": [
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Actor[]"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "get",
+          "action": "show"
+        },
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Actor"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "post",
+          "action": "create"
+        }
+      ],
+      "resources": [
+        {
+          "relativeUri": "/featured",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Actor[]"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "featured"
+          ],
+          "parentRelativeUri": "/actor",
+          "groupRelativeUri": "actor",
+          "name": "Actor",
+          "suffixRelativeUri": "",
+          "suffix": "Featured"
+        },
+        {
+          "relativeUri": "/{id}",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Actor"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Actor"
+                    }
+                  }
+                }
+              },
+              "method": "put",
+              "action": "update"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Actor"
+                    }
+                  }
+                }
+              },
+              "method": "delete",
+              "action": "delete"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "{id}"
+          ],
+          "uriParameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "displayName": "id"
+            }
+          },
+          "parentRelativeUri": "/actor",
+          "groupRelativeUri": "actor",
+          "name": "Actor",
+          "suffixRelativeUri": "",
+          "suffix": "Id"
+        }
+      ],
+      "relativeUriPathSegments": [
+        "actor"
+      ],
+      "parentRelativeUri": "",
+      "groupRelativeUri": "actor",
+      "suffixRelativeUri": "",
+      "name": "Actor",
+      "suffix": "Actor"
+    },
+    {
+      "relativeUri": "/genre",
+      "methods": [
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Genre[]"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "get",
+          "action": "show"
+        },
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "Genre"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "post",
+          "action": "create"
+        }
+      ],
+      "resources": [
+        {
+          "relativeUri": "/featured",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Genre[]"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "featured"
+          ],
+          "parentRelativeUri": "/genre",
+          "groupRelativeUri": "genre",
+          "name": "Genre",
+          "suffixRelativeUri": "",
+          "suffix": "Featured"
+        },
+        {
+          "relativeUri": "/{id}",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Genre"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Genre"
+                    }
+                  }
+                }
+              },
+              "method": "put",
+              "action": "update"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "Genre"
+                    }
+                  }
+                }
+              },
+              "method": "delete",
+              "action": "delete"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "{id}"
+          ],
+          "uriParameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "displayName": "id"
+            }
+          },
+          "parentRelativeUri": "/genre",
+          "groupRelativeUri": "genre",
+          "name": "Genre",
+          "suffixRelativeUri": "",
+          "suffix": "Id"
+        }
+      ],
+      "relativeUriPathSegments": [
+        "genre"
+      ],
+      "parentRelativeUri": "",
+      "groupRelativeUri": "genre",
+      "suffixRelativeUri": "",
+      "name": "Genre",
+      "suffix": "Genre"
+    },
+    {
+      "relativeUri": "/link_watch",
+      "methods": [
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "LinkWatch"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "post",
+          "action": "create"
+        }
+      ],
+      "resources": [
+        {
+          "relativeUri": "/{id}",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "LinkWatch"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "LinkWatch"
+                    }
+                  }
+                }
+              },
+              "method": "put",
+              "action": "update"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "LinkWatch"
+                    }
+                  }
+                }
+              },
+              "method": "delete",
+              "action": "delete"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "{id}"
+          ],
+          "uriParameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "displayName": "id"
+            }
+          },
+          "parentRelativeUri": "/link_watch",
+          "groupRelativeUri": "link-watch",
+          "name": "LinkWatch",
+          "suffixRelativeUri": "",
+          "suffix": "Id"
+        }
+      ],
+      "relativeUriPathSegments": [
+        "link_watch"
+      ],
+      "parentRelativeUri": "",
+      "groupRelativeUri": "link-watch",
+      "suffixRelativeUri": "",
+      "name": "LinkWatch",
+      "suffix": "LinkWatch"
+    },
+    {
+      "relativeUri": "/link_download",
+      "methods": [
+        {
+          "responses": {
+            "200": {
+              "body": {
+                "application/json": {
+                  "schema": "LinkDownload"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTP"
+          ],
+          "method": "post",
+          "action": "create"
+        }
+      ],
+      "resources": [
+        {
+          "relativeUri": "/{id}",
+          "methods": [
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "LinkDownload"
+                    }
+                  }
+                }
+              },
+              "method": "get",
+              "action": "show"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "LinkDownload"
+                    }
+                  }
+                }
+              },
+              "method": "put",
+              "action": "update"
+            },
+            {
+              "responses": {
+                "200": {
+                  "body": {
+                    "application/json": {
+                      "schema": "LinkDownload"
+                    }
+                  }
+                }
+              },
+              "method": "delete",
+              "action": "delete"
+            }
+          ],
+          "relativeUriPathSegments": [
+            "{id}"
+          ],
+          "uriParameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "displayName": "id"
+            }
+          },
+          "parentRelativeUri": "/link_download",
+          "groupRelativeUri": "link-download",
+          "name": "LinkDownload",
+          "suffixRelativeUri": "",
+          "suffix": "Id"
+        }
+      ],
+      "relativeUriPathSegments": [
+        "link_download"
+      ],
+      "parentRelativeUri": "",
+      "groupRelativeUri": "link-download",
+      "suffixRelativeUri": "",
+      "name": "LinkDownload",
+      "suffix": "LinkDownload"
+    }
+  ],
+  "baseUriParameters": {
+    "version": {
+      "type": "string",
+      "required": true,
+      "displayName": "version",
+      "enum": [
+        "v1"
+      ]
+    }
+  }
+}

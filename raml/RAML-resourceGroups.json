@@ -1,0 +1,1502 @@
+[
+  {
+    "resources": [
+      {
+        "relativeUri": "/movie",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Movie[]"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Movie"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "post",
+            "action": "create"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/top",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Movie[]"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "top"
+            ],
+            "parentRelativeUri": "/movie",
+            "groupRelativeUri": "movie",
+            "name": "Movie",
+            "suffixRelativeUri": "",
+            "suffix": "Top"
+          },
+          {
+            "relativeUri": "/{id}",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Movie"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Movie"
+                      }
+                    }
+                  }
+                },
+                "method": "put",
+                "action": "update"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Movie"
+                      }
+                    }
+                  }
+                },
+                "method": "delete",
+                "action": "delete"
+              }
+            ],
+            "resources": [
+              {
+                "relativeUri": "/genres",
+                "methods": [
+                  {
+                    "responses": {
+                      "200": {
+                        "body": {
+                          "application/json": {
+                            "schema": "Genre[]"
+                          }
+                        }
+                      }
+                    },
+                    "method": "get",
+                    "action": "show"
+                  }
+                ],
+                "relativeUriPathSegments": [
+                  "genres"
+                ],
+                "parentRelativeUri": "/movie/{id}",
+                "groupRelativeUri": "movie",
+                "name": "Movie",
+                "suffixRelativeUri": "id",
+                "suffix": "IdGenres"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "{id}"
+            ],
+            "uriParameters": {
+              "id": {
+                "type": "string",
+                "required": true,
+                "displayName": "id"
+              }
+            },
+            "parentRelativeUri": "/movie",
+            "groupRelativeUri": "movie",
+            "name": "Movie",
+            "suffixRelativeUri": "",
+            "suffix": "Id"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "movie"
+        ],
+        "parentRelativeUri": "",
+        "groupRelativeUri": "movie",
+        "suffixRelativeUri": "",
+        "name": "Movie",
+        "suffix": "Movie"
+      },
+      {
+        "relativeUri": "/top",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Movie[]"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "top"
+        ],
+        "parentRelativeUri": "/movie",
+        "groupRelativeUri": "movie",
+        "name": "Movie",
+        "suffixRelativeUri": "",
+        "suffix": "Top"
+      },
+      {
+        "relativeUri": "/{id}",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Movie"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Movie"
+                  }
+                }
+              }
+            },
+            "method": "put",
+            "action": "update"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Movie"
+                  }
+                }
+              }
+            },
+            "method": "delete",
+            "action": "delete"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/genres",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Genre[]"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "genres"
+            ],
+            "parentRelativeUri": "/movie/{id}",
+            "groupRelativeUri": "movie",
+            "name": "Movie",
+            "suffixRelativeUri": "id",
+            "suffix": "IdGenres"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "{id}"
+        ],
+        "uriParameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "displayName": "id"
+          }
+        },
+        "parentRelativeUri": "/movie",
+        "groupRelativeUri": "movie",
+        "name": "Movie",
+        "suffixRelativeUri": "",
+        "suffix": "Id"
+      },
+      {
+        "relativeUri": "/genres",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Genre[]"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "genres"
+        ],
+        "parentRelativeUri": "/movie/{id}",
+        "groupRelativeUri": "movie",
+        "name": "Movie",
+        "suffixRelativeUri": "id",
+        "suffix": "IdGenres"
+      }
+    ],
+    "name": "Movie"
+  },
+  {
+    "resources": [
+      {
+        "relativeUri": "/news",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "News[]"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "News"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "post",
+            "action": "create"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/latest",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "News[]"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "latest"
+            ],
+            "parentRelativeUri": "/news",
+            "groupRelativeUri": "news",
+            "name": "News",
+            "suffixRelativeUri": "",
+            "suffix": "Latest"
+          },
+          {
+            "relativeUri": "/{id}",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "News"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "News"
+                      }
+                    }
+                  }
+                },
+                "method": "put",
+                "action": "update"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "News"
+                      }
+                    }
+                  }
+                },
+                "method": "delete",
+                "action": "delete"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "{id}"
+            ],
+            "uriParameters": {
+              "id": {
+                "type": "string",
+                "required": true,
+                "displayName": "id"
+              }
+            },
+            "parentRelativeUri": "/news",
+            "groupRelativeUri": "news",
+            "name": "News",
+            "suffixRelativeUri": "",
+            "suffix": "Id"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "news"
+        ],
+        "parentRelativeUri": "",
+        "groupRelativeUri": "news",
+        "suffixRelativeUri": "",
+        "name": "News",
+        "suffix": "News"
+      },
+      {
+        "relativeUri": "/latest",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "News[]"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "latest"
+        ],
+        "parentRelativeUri": "/news",
+        "groupRelativeUri": "news",
+        "name": "News",
+        "suffixRelativeUri": "",
+        "suffix": "Latest"
+      },
+      {
+        "relativeUri": "/{id}",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "News"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "News"
+                  }
+                }
+              }
+            },
+            "method": "put",
+            "action": "update"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "News"
+                  }
+                }
+              }
+            },
+            "method": "delete",
+            "action": "delete"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "{id}"
+        ],
+        "uriParameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "displayName": "id"
+          }
+        },
+        "parentRelativeUri": "/news",
+        "groupRelativeUri": "news",
+        "name": "News",
+        "suffixRelativeUri": "",
+        "suffix": "Id"
+      }
+    ],
+    "name": "News"
+  },
+  {
+    "resources": [
+      {
+        "relativeUri": "/autor",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Autor[]"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Autor"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "post",
+            "action": "create"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/featured",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Autor[]"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "featured"
+            ],
+            "parentRelativeUri": "/autor",
+            "groupRelativeUri": "autor",
+            "name": "Autor",
+            "suffixRelativeUri": "",
+            "suffix": "Featured"
+          },
+          {
+            "relativeUri": "/{id}",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Autor"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Autor"
+                      }
+                    }
+                  }
+                },
+                "method": "put",
+                "action": "update"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Autor"
+                      }
+                    }
+                  }
+                },
+                "method": "delete",
+                "action": "delete"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "{id}"
+            ],
+            "uriParameters": {
+              "id": {
+                "type": "string",
+                "required": true,
+                "displayName": "id"
+              }
+            },
+            "parentRelativeUri": "/autor",
+            "groupRelativeUri": "autor",
+            "name": "Autor",
+            "suffixRelativeUri": "",
+            "suffix": "Id"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "autor"
+        ],
+        "parentRelativeUri": "",
+        "groupRelativeUri": "autor",
+        "suffixRelativeUri": "",
+        "name": "Autor",
+        "suffix": "Autor"
+      },
+      {
+        "relativeUri": "/featured",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Autor[]"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "featured"
+        ],
+        "parentRelativeUri": "/autor",
+        "groupRelativeUri": "autor",
+        "name": "Autor",
+        "suffixRelativeUri": "",
+        "suffix": "Featured"
+      },
+      {
+        "relativeUri": "/{id}",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Autor"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Autor"
+                  }
+                }
+              }
+            },
+            "method": "put",
+            "action": "update"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Autor"
+                  }
+                }
+              }
+            },
+            "method": "delete",
+            "action": "delete"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "{id}"
+        ],
+        "uriParameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "displayName": "id"
+          }
+        },
+        "parentRelativeUri": "/autor",
+        "groupRelativeUri": "autor",
+        "name": "Autor",
+        "suffixRelativeUri": "",
+        "suffix": "Id"
+      }
+    ],
+    "name": "Autor"
+  },
+  {
+    "resources": [
+      {
+        "relativeUri": "/actor",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Actor[]"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Actor"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "post",
+            "action": "create"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/featured",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Actor[]"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "featured"
+            ],
+            "parentRelativeUri": "/actor",
+            "groupRelativeUri": "actor",
+            "name": "Actor",
+            "suffixRelativeUri": "",
+            "suffix": "Featured"
+          },
+          {
+            "relativeUri": "/{id}",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Actor"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Actor"
+                      }
+                    }
+                  }
+                },
+                "method": "put",
+                "action": "update"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Actor"
+                      }
+                    }
+                  }
+                },
+                "method": "delete",
+                "action": "delete"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "{id}"
+            ],
+            "uriParameters": {
+              "id": {
+                "type": "string",
+                "required": true,
+                "displayName": "id"
+              }
+            },
+            "parentRelativeUri": "/actor",
+            "groupRelativeUri": "actor",
+            "name": "Actor",
+            "suffixRelativeUri": "",
+            "suffix": "Id"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "actor"
+        ],
+        "parentRelativeUri": "",
+        "groupRelativeUri": "actor",
+        "suffixRelativeUri": "",
+        "name": "Actor",
+        "suffix": "Actor"
+      },
+      {
+        "relativeUri": "/featured",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Actor[]"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "featured"
+        ],
+        "parentRelativeUri": "/actor",
+        "groupRelativeUri": "actor",
+        "name": "Actor",
+        "suffixRelativeUri": "",
+        "suffix": "Featured"
+      },
+      {
+        "relativeUri": "/{id}",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Actor"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Actor"
+                  }
+                }
+              }
+            },
+            "method": "put",
+            "action": "update"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Actor"
+                  }
+                }
+              }
+            },
+            "method": "delete",
+            "action": "delete"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "{id}"
+        ],
+        "uriParameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "displayName": "id"
+          }
+        },
+        "parentRelativeUri": "/actor",
+        "groupRelativeUri": "actor",
+        "name": "Actor",
+        "suffixRelativeUri": "",
+        "suffix": "Id"
+      }
+    ],
+    "name": "Actor"
+  },
+  {
+    "resources": [
+      {
+        "relativeUri": "/genre",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Genre[]"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Genre"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "post",
+            "action": "create"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/featured",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Genre[]"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "featured"
+            ],
+            "parentRelativeUri": "/genre",
+            "groupRelativeUri": "genre",
+            "name": "Genre",
+            "suffixRelativeUri": "",
+            "suffix": "Featured"
+          },
+          {
+            "relativeUri": "/{id}",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Genre"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Genre"
+                      }
+                    }
+                  }
+                },
+                "method": "put",
+                "action": "update"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "Genre"
+                      }
+                    }
+                  }
+                },
+                "method": "delete",
+                "action": "delete"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "{id}"
+            ],
+            "uriParameters": {
+              "id": {
+                "type": "string",
+                "required": true,
+                "displayName": "id"
+              }
+            },
+            "parentRelativeUri": "/genre",
+            "groupRelativeUri": "genre",
+            "name": "Genre",
+            "suffixRelativeUri": "",
+            "suffix": "Id"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "genre"
+        ],
+        "parentRelativeUri": "",
+        "groupRelativeUri": "genre",
+        "suffixRelativeUri": "",
+        "name": "Genre",
+        "suffix": "Genre"
+      },
+      {
+        "relativeUri": "/featured",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Genre[]"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "featured"
+        ],
+        "parentRelativeUri": "/genre",
+        "groupRelativeUri": "genre",
+        "name": "Genre",
+        "suffixRelativeUri": "",
+        "suffix": "Featured"
+      },
+      {
+        "relativeUri": "/{id}",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Genre"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Genre"
+                  }
+                }
+              }
+            },
+            "method": "put",
+            "action": "update"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "Genre"
+                  }
+                }
+              }
+            },
+            "method": "delete",
+            "action": "delete"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "{id}"
+        ],
+        "uriParameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "displayName": "id"
+          }
+        },
+        "parentRelativeUri": "/genre",
+        "groupRelativeUri": "genre",
+        "name": "Genre",
+        "suffixRelativeUri": "",
+        "suffix": "Id"
+      }
+    ],
+    "name": "Genre"
+  },
+  {
+    "resources": [
+      {
+        "relativeUri": "/link_watch",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkWatch"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "post",
+            "action": "create"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/{id}",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "LinkWatch"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "LinkWatch"
+                      }
+                    }
+                  }
+                },
+                "method": "put",
+                "action": "update"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "LinkWatch"
+                      }
+                    }
+                  }
+                },
+                "method": "delete",
+                "action": "delete"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "{id}"
+            ],
+            "uriParameters": {
+              "id": {
+                "type": "string",
+                "required": true,
+                "displayName": "id"
+              }
+            },
+            "parentRelativeUri": "/link_watch",
+            "groupRelativeUri": "link-watch",
+            "name": "LinkWatch",
+            "suffixRelativeUri": "",
+            "suffix": "Id"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "link_watch"
+        ],
+        "parentRelativeUri": "",
+        "groupRelativeUri": "link-watch",
+        "suffixRelativeUri": "",
+        "name": "LinkWatch",
+        "suffix": "LinkWatch"
+      },
+      {
+        "relativeUri": "/{id}",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkWatch"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkWatch"
+                  }
+                }
+              }
+            },
+            "method": "put",
+            "action": "update"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkWatch"
+                  }
+                }
+              }
+            },
+            "method": "delete",
+            "action": "delete"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "{id}"
+        ],
+        "uriParameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "displayName": "id"
+          }
+        },
+        "parentRelativeUri": "/link_watch",
+        "groupRelativeUri": "link-watch",
+        "name": "LinkWatch",
+        "suffixRelativeUri": "",
+        "suffix": "Id"
+      }
+    ],
+    "name": "LinkWatch"
+  },
+  {
+    "resources": [
+      {
+        "relativeUri": "/link_download",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkDownload"
+                  }
+                }
+              }
+            },
+            "protocols": [
+              "HTTP"
+            ],
+            "method": "post",
+            "action": "create"
+          }
+        ],
+        "resources": [
+          {
+            "relativeUri": "/{id}",
+            "methods": [
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "LinkDownload"
+                      }
+                    }
+                  }
+                },
+                "method": "get",
+                "action": "show"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "LinkDownload"
+                      }
+                    }
+                  }
+                },
+                "method": "put",
+                "action": "update"
+              },
+              {
+                "responses": {
+                  "200": {
+                    "body": {
+                      "application/json": {
+                        "schema": "LinkDownload"
+                      }
+                    }
+                  }
+                },
+                "method": "delete",
+                "action": "delete"
+              }
+            ],
+            "relativeUriPathSegments": [
+              "{id}"
+            ],
+            "uriParameters": {
+              "id": {
+                "type": "string",
+                "required": true,
+                "displayName": "id"
+              }
+            },
+            "parentRelativeUri": "/link_download",
+            "groupRelativeUri": "link-download",
+            "name": "LinkDownload",
+            "suffixRelativeUri": "",
+            "suffix": "Id"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "link_download"
+        ],
+        "parentRelativeUri": "",
+        "groupRelativeUri": "link-download",
+        "suffixRelativeUri": "",
+        "name": "LinkDownload",
+        "suffix": "LinkDownload"
+      },
+      {
+        "relativeUri": "/{id}",
+        "methods": [
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkDownload"
+                  }
+                }
+              }
+            },
+            "method": "get",
+            "action": "show"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkDownload"
+                  }
+                }
+              }
+            },
+            "method": "put",
+            "action": "update"
+          },
+          {
+            "responses": {
+              "200": {
+                "body": {
+                  "application/json": {
+                    "schema": "LinkDownload"
+                  }
+                }
+              }
+            },
+            "method": "delete",
+            "action": "delete"
+          }
+        ],
+        "relativeUriPathSegments": [
+          "{id}"
+        ],
+        "uriParameters": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "displayName": "id"
+          }
+        },
+        "parentRelativeUri": "/link_download",
+        "groupRelativeUri": "link-download",
+        "name": "LinkDownload",
+        "suffixRelativeUri": "",
+        "suffix": "Id"
+      }
+    ],
+    "name": "LinkDownload"
+  }
+]
